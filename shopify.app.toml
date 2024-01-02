@@ -1,0 +1,27 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+name = "TInytags - Design and option "
+client_id = "cf8a4462ca93449ea0738b016a50cd42"
+application_url = "https://pcs-formerly-cosmetic-towards.trycloudflare.com"
+embedded = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "read_content,write_content,read_themes,write_themes,read_products,write_products,read_customers,write_customers,read_orders,write_orders,read_script_tags,write_script_tags,read_fulfillments,write_fulfillments,read_shipping,write_shipping,read_price_rules,write_price_rules"
+
+[auth]
+redirect_urls = [
+  "https://pcs-formerly-cosmetic-towards.trycloudflare.com/auth/callback",
+  "https://pcs-formerly-cosmetic-towards.trycloudflare.com/auth/shopify/callback",
+  "https://pcs-formerly-cosmetic-towards.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-01"
+
+[pos]
+embedded = false
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "tinytags-design-tool.myshopify.com"
