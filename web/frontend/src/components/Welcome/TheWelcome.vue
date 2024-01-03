@@ -54,8 +54,22 @@ const useToast = (message, isError = false) => {
   toast.dispatch(Toast.Action.SHOW)
 }
 
+
+
+
+
 onMounted(async () => {
   useProductCounterStore().getProducts()
+
+
+  // Trigger the action to fetch all products
+  await useProductCounterStore().getAllProducts()
+
+  // Access the products data from the store
+  products.value = useProductCounterStore().allProducts
+
+  // This console.log will log the updated state after the actions are completed
+  console.log('Products:', products.value)
 })
 </script>
 

@@ -8,7 +8,9 @@
         <li>
           <RouterLink to="/about">About</RouterLink>
         </li>
-          
+           <li>
+          <RouterLink to="/next">Next Nav</RouterLink>
+        </li>
       </ul>
     </nav>
   </header>
