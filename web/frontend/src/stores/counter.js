@@ -36,5 +36,5 @@ export const useProductCounterStore = defineStore('productCounter', () => {
     }
   }
 
-  return { count, getProducts, createProducts }
+  return { count, getProducts, createProducts,getAllProducts }
 })

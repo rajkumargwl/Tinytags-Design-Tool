@@ -2,7 +2,7 @@
 
 name = "TInytags - Design and option "
 client_id = "cf8a4462ca93449ea0738b016a50cd42"
-application_url = "https://pcs-formerly-cosmetic-towards.trycloudflare.com"
+application_url = "https://urge-barrier-bold-beans.trycloudflare.com"
 embedded = true
 
 [access_scopes]
@@ -11,9 +11,9 @@ scopes = "read_content,write_content,read_themes,write_themes,read_products,writ
 
 [auth]
 redirect_urls = [
-  "https://pcs-formerly-cosmetic-towards.trycloudflare.com/auth/callback",
-  "https://pcs-formerly-cosmetic-towards.trycloudflare.com/auth/shopify/callback",
-  "https://pcs-formerly-cosmetic-towards.trycloudflare.com/api/auth/callback"
+  "https://urge-barrier-bold-beans.trycloudflare.com/auth/callback",
+  "https://urge-barrier-bold-beans.trycloudflare.com/auth/shopify/callback",
+  "https://urge-barrier-bold-beans.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]

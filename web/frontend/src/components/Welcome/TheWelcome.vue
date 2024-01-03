@@ -39,6 +39,7 @@ import { useProductCounterStore } from '@/stores/counter.js'
 import { ref, inject, onMounted, computed } from 'vue'
 const appBridge = inject('useAppBridge')
 const buttonDisabled = ref(false)
+const products = ref([])
 
 const currentProductCount = computed(() => {
   return useProductCounterStore().count
@@ -53,9 +54,7 @@ const useToast = (message, isError = false) => {
   toast.dispatch(Toast.Action.SHOW)
 }
 
-
-
-onMounted(() => {
+onMounted(async () => {
   useProductCounterStore().getProducts()
 })
 </script>
