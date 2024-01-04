@@ -8,7 +8,7 @@
     
     ii.No, connect it as an existing app `TInytags - Design and option`  [For which existing app is this for ?]
     
-    iii.Select Tinytags Design Tool store [which store would you like to use to view  this project?]
+    iii.Select `Tinytags Design Tool` store [which store would you like to use to view  this project?]
 
 5. We need to select the partner account
 6. Select the existing app option and select the "tinytags-design-tool"
