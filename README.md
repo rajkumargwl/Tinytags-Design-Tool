@@ -6,9 +6,9 @@
    
     i.We need to authenticate partner account through cli and select  the partner account, so select `Galaxy weblinks Inc` account  [For which partner organization..?] 
     
-    ii.No, connect it as an existing app[For which existing app is this for ?]
+    ii.No, connect it as an existing app `TInytags - Design and option`  [For which existing app is this for ?]
     
-    iii.select Tinytags Design Tool store [which store would you like to use to view  this project?]
+    iii.Select Tinytags Design Tool store [which store would you like to use to view  this project?]
 
 5. We need to select the partner account
 6. Select the existing app option and select the "tinytags-design-tool"
