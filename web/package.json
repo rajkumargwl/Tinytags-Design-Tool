@@ -16,10 +16,12 @@
     "@shopify/shopify-app-express": "^3.0.2",
     "@shopify/shopify-app-session-storage-mysql": "^2.0.2",
     "@shopify/shopify-app-session-storage-sqlite": "^2.0.2",
+    "axios": "^1.6.4",
     "compression": "^1.7.4",
     "cross-env": "^7.0.3",
     "mysql2": "^3.6.5",
-    "serve-static": "^1.15.0"
+    "serve-static": "^1.15.0",
+    "shopify-api-node": "^3.12.7"
   },
   "devDependencies": {
     "nodemon": "^3.0.1",
