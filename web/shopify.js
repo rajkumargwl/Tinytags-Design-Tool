@@ -29,7 +29,7 @@ const shopify = shopifyApp({
     path: "/api/webhooks",
   },
  
-  sessionStorage: new MySQLSessionStorage("mysql://galaxy:Admin@123@172.18.0.2/tinytags_design_and_option"),
+  sessionStorage: new MySQLSessionStorage("mysql://root:redhat@127.0.0.1/tinytags_design_and_option"),
 });
 
 export default shopify;

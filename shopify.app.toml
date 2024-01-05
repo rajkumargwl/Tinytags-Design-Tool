@@ -2,7 +2,7 @@
 
 name = "TInytags - Design and option "
 client_id = "cf8a4462ca93449ea0738b016a50cd42"
-application_url = "https://flying-st-pad-uploaded.trycloudflare.com"
+application_url = "https://loss-hostels-yellow-doing.trycloudflare.com"
 embedded = true
 
 [access_scopes]
@@ -11,9 +11,9 @@ scopes = "read_content,write_content,read_themes,write_themes,read_products,writ
 
 [auth]
 redirect_urls = [
-  "https://flying-st-pad-uploaded.trycloudflare.com/auth/callback",
-  "https://flying-st-pad-uploaded.trycloudflare.com/auth/shopify/callback",
-  "https://flying-st-pad-uploaded.trycloudflare.com/api/auth/callback"
+  "https://loss-hostels-yellow-doing.trycloudflare.com/auth/callback",
+  "https://loss-hostels-yellow-doing.trycloudflare.com/auth/shopify/callback",
+  "https://loss-hostels-yellow-doing.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
