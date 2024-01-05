@@ -11,6 +11,7 @@
         using the latest vue features such as pinia and vue-router 4 while keeping your code clean
         with esLint and prettier.
       </p>
+      <button class="btn btn-primary">Primary Button</button>
     </div>
   </div>
 </template>

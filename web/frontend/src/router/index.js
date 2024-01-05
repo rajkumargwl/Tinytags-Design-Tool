@@ -21,7 +21,15 @@ const router = createRouter({
       path: '/exitiframe',
       name: 'exitiframe',
       component: () => import('../views/ExitIframeView.vue')
-    }
+    },
+    {
+      path: '/product-listing',
+      name: 'product',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/products/ProductListing.vue')
+    },
   ]
 })
 

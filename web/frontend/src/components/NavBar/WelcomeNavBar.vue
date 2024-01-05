@@ -3,12 +3,14 @@
     <nav>
       <ul>
         <li>
-          <RouterLink to="/">Home</RouterLink>
+          <RouterLink to="/">Dashboard</RouterLink>
         </li>
-        <li>
+        <!-- <li>
           <RouterLink to="/about">About</RouterLink>
-        </li>
-           
+        </li> -->
+            <li>
+            <RouterLink to="/product-listing">Product Listing</RouterLink>
+          </li>
       </ul>
     </nav>
   </header>

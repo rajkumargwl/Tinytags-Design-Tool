@@ -3,24 +3,25 @@
     <div class="card">
       <div class="left-text">
         <h2>
-          Nice work on building a shopify app with a
-          <a href="https://vuejs.org/guide/introduction.html" target="_blank">Vue Template</a>💚
+          Dashboard
+          <!-- Nice work on building a shopify app with a
+          <a href="https://vuejs.org/guide/introduction.html" target="_blank">Vue Template</a>💚 -->
         </h2>
-        <p>
+        <!-- <p>
           Your app is ready to explore, it contains everything you would need to build your awesome
           app!
-        </p>
+        </p> -->
       
       </div>
-      <div class="right-image">
+      <!-- <div class="right-image">
         <img
           src="@/assets/images/home-trophy-vue.png"
           alt="Successfully created app with vue template"
         />
-      </div>
+      </div> -->
     </div>
 
-    <div class="card product-counter">
+    <!-- <div class="card product-counter">
       <h2>Product Counter</h2>
       <p>
         Sample Products are created with a default title and price. You can remove them at any time
@@ -29,7 +30,7 @@
       <h2>Total Products</h2>
       <h3>{{ currentProductCount }}</h3>
    
-    </div>
+    </div> -->
 
     
   </div>
