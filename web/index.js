@@ -7,6 +7,8 @@ import serveStatic from "serve-static";
 import shopify from "./shopify.js";
 import productCreator from "./product-creator.js";
 import GDPRWebhookHandlers from "./gdpr.js";
+import axios from 'axios';
+import  Shopify from "shopify-api-node";
 
 const PORT = parseInt(
   process.env.BACKEND_PORT || process.env.PORT || "3000",
@@ -39,18 +41,42 @@ app.use("/api/*", shopify.validateAuthenticatedSession());
 
 app.use(express.json());
 
+
 app.get("/api/products/count", async (_req, res) => {
   const countData = await shopify.api.rest.Product.count({
     session: res.locals.shopify.session,
   });
   res.status(200).send(countData);
 });
-app.get("/api/products/getAll", async (_req, res) => {
-  const allData = await shopify.api.rest.Product.all({
-    session: res.locals.shopify.session,
+ 
+ app.get("/api/products/getAll", async (_req, res) => {
+  var shop = res.locals.shopify.session.shop;
+  var accessToken = res.locals.shopify.session.accessToken;
+  const shopify = new Shopify({
+    shopName: shop,
+    accessToken: accessToken,
   });
-  res.status(200).send(allData);
+
+  try {
+    let allProducts = [];
+    let params = { limit: 250 };
+
+    do {
+      const products = await shopify.product.list(params);
+      
+
+      allProducts = [...allProducts, ...products];
+      params = products.nextPageParameters;
+    } while (params);
+
+    console.log("all products get", allProducts);
+    res.status(200).send(allProducts);
+  } catch (error) {
+    console.error('Error fetching products:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
 });
+
 app.get("/api/products/create", async (_req, res) => {
   let status = 200;
   let error = null;
@@ -75,4 +101,8 @@ app.use("/*", shopify.ensureInstalledOnShop(), async (_req, res, _next) => {
     .send(readFileSync(join(STATIC_PATH, "index.html")));
 });
 
-app.listen(PORT);
+//app.listen(PORT);
+
+app.listen(PORT, () => {
+  console.log(`server is running on port ${PORT}`);
+});

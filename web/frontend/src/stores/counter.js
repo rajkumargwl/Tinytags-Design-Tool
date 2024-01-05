@@ -13,27 +13,26 @@ export const useProductCounterStore = defineStore('productCounter', () => {
         throw new Error(`Failed to fetch product count: ${response.status}`)
       }
       const data = await response.json()
-      return count.value = data.count
+      count.value = data.count
     } catch (error) {
       console.log(`Failed to fetch product count: ${error.message}`)
     }
   }
-
-  /**Created by me */
-  const getAllProducts = async () => {
-    try {
-      const response = await fetch('/api/products/getAll')
-      if (!response.ok) {
-        throw new Error(`Failed to fetch products: ${response.status}`)
-      }
-      const allProducts = await response.json()
-      return allProducts;
-    } catch (error) {
-      console.log(`Failed to fetch products: ${error.message}`)
+/**Created by @@@ */
+const getAllProducts = async () => {
+  try {
+    const response = await fetch('/api/products/getAll')
+    if (!response.ok) {
+      throw new Error(`Failed to fetch products: ${response.status}`)
     }
+    const allProducts = await response.json()
+    console.log("response in store",allProducts)
+    return allProducts;
+  } catch (error) {
+    console.log(`Failed to fetch products: ${error.message}`)
   }
-  /**End */
-
+}
+/**End */
   const createProducts = async () => {
     try {
       const response = await fetch('/api/products/create')
