@@ -66,7 +66,7 @@ onMounted(async () => {
     // Access the products data from the store
     products.value = productsData.data
    // console.log('Products:', productsData)
-    console.log('Products data:', products.value)
+    console.log('Products data:', productsData);
   } catch (error) {
     console.error('Error fetching products:', error)
   }

@@ -1,0 +1,26 @@
+/* css for product listing pages */
+.setfield-space {
+    margin-right: 15px;
+}
+
+.main-search {
+    padding: 15px;
+}
+
+.search-products {
+    max-width: 600px;
+    width: 100%;
+}
+
+.search-products fieldset {
+    max-width: 430px;
+    width: 100%;
+}
+
+.search-products fieldset input {
+    padding-left: 100px
+}
+
+.product-table-main-list {
+    padding: 20px;
+}
