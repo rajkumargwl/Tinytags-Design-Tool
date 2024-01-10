@@ -6,7 +6,7 @@
                     <h2>
                         Add New Product
                         <!-- Nice work on building a shopify app with a
-          <a href="https://vuejs.org/guide/introduction.html" target="_blank">Vue Template</a>💚 -->
+          <a href="https://vuejs.org/guide/introduction.html" target="_blank">Vue Template</a> -->
                     </h2>
                 </div>
 
