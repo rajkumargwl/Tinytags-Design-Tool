@@ -156,7 +156,7 @@ export default {
 
     },
     mounted() {
-        this.getProductList();
+        // this.getProductList();
         this.listConfig = {
             offset: (this.currentPage - 1) * this.itemsPerPage,
             limit: this.itemsPerPage,
@@ -173,11 +173,10 @@ export default {
             if (!response.ok) {
                 throw new Error(`Failed to fetch products: ${response.status}`)
             }
-            console.log("response in store in listing11111")
             const allProducts = await response.json()
             this.productListArray = allProducts;
             this.product_length = allProducts.length;
-            console.log('check first data is here11================', this.productListArray[0].title, this.productListArray.length);
+            
             return allProducts;
         },
         productVarientData(dataList) {

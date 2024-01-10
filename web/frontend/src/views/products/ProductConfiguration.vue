@@ -7,6 +7,18 @@
                         Product Configuration
                     </h2>
                 </div>
+                <div class="search-products align-items-center d-flex justify-content-end">
+                        <!-- <fieldset class="form-group position-relative mb-0 search_form setfield-space">
+                        <input type="text" class="form-control" id="iconLeft1" placeholder="Search and Filter Options" />
+                        <div class="form-control-position form_input_items mt_8">
+                            <i class="ft-x font-medium-5 cross_image cursor-pointer"></i>
+                            <i alt="icon" class="ft-search font-medium-5 cursor-pointer pr_8"></i>
+                        </div>
+                    </fieldset> -->
+                        <button id="close-edit-category" type="button" @click="$router.push('/add-new-product')" class=" btn btn-primary">
+                            Back
+                        </button>
+                    </div>
             </div>
             <form  @submit.prevent="addNewProduct">
             <div class="p-5">
@@ -18,9 +30,10 @@
                     <div class="col-md-4">
                         <label for="exampleFormControlInput1" class="form-label">Product Variant</label>
                         <select class="form-select" aria-label="Default select example" v-model="saveProductData.product_varient">
-                            <option selected>Product Variant</option>
+                            <option v-for="option in productVarientList.variants" :key="option.value" :value="option.id">{{ option.title }}</option>
+                            <!-- <option selected>Product Variant</option>
                             <option value="14K Gold">14K Gold</option>
-                            <option value="14K Silver">14K Silver</option>
+                            <option value="14K Silver">14K Silver</option> -->
                         </select>
                     </div>
                     <div class="col-md-4">
@@ -85,6 +98,7 @@ export default {
             currentPage: 1,
             itemsPerPage: 25,
             product_length: 0,
+            productVarientList:[],
             saveProductData: {
                 product_name: null,
                 product_varient: '14K Gold',
@@ -96,7 +110,8 @@ export default {
 
     mounted() {
         // this.getProductList();
-
+        this.getVarient();
+        this.addNewProduct();
     },
 
     methods: {
@@ -105,16 +120,27 @@ export default {
             if (!response.ok) {
                 throw new Error(`Failed to fetch products: ${response.status}`)
             }
-            console.log("response in store in listing11111")
             const allProducts = await response.json()
             this.productListArray = allProducts;
             this.product_length = allProducts.length;
-            console.log('check first data is here11================', this.productListArray[0].title, this.productListArray.length);
             return allProducts;
         },
-        addNewProduct() {
-            alert()
-            console.log('check data is here==================', this.saveProductData, this.saveProductData.product_name);
+        async addNewProduct() {
+            const response = await fetch('/api/test')
+            if (!response.ok) {
+                throw new Error(`Failed to fetch products routes: ${response.status}`)
+            }
+            console.log("response in new routes", response)
+            // alert()
+            // console.log('check data is here==================', this.saveProductData, this.saveProductData.product_name);
+        },
+        getVarient() {
+            let product_detail = JSON.parse(localStorage.getItem("single_product_detail"));
+            this.productVarientList = product_detail;
+            if (product_detail.variants.length > 0) {
+                this.saveProductData.product_varient = product_detail.variants[0].id;
+            }
+            
         }
     }
 

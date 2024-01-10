@@ -27,8 +27,8 @@
                 <div class="p-4">
                     <div class="row">
                         <div class="col-md-4">
-                            <select class="form-select" aria-label="Default select example" v-model="products.product_name">
-                            <option v-for="option in productList" :key="option.value" :value="option.id">{{ option.title }}</option>
+                            <select class="form-select" aria-label="Default select example" @change="filtertemplateName" v-model="products.product_name" required>
+                            <option v-for="option in productList"  :key="option.value" :value="option.id">{{ option.title }}</option>
                             <!-- <option selected>Select Product</option>
                             <option value="1">One</option>
                             <option value="2">Two</option>
@@ -36,12 +36,12 @@
                             </select>
                         </div>
                          <div class="col-md-4">
-                            <select class="form-select" aria-label="Default select example">
+                            <select class="form-select" aria-label="Default select example" v-model="products.product_template" required>
                             <option v-for="option in templateList" :key="option.value" :value="option.id">{{ option.name }}</option>
                             </select>
                          </div>
                          <div class="col-md-4">
-                            <select class="form-select" aria-label="Default select example">
+                            <select class="form-select" aria-label="Default select example" v-model="products.product_price_template">
                             <option v-for="option in priceTemplateList" :key="option.value" :value="option.id">{{ option.name }}</option>
                             </select>
                          </div>
@@ -79,8 +79,7 @@ import { useProductCounterStore } from '@/stores/counter.js'
 import { useAuthenticatedFetchVue } from '@/helpers/vueAuthenticatedFetch.js'
 import { ref, inject, onMounted, computed } from 'vue'
 
-const buttonDisabled = ref(false)
-const products = ref([])
+
 const fetch = useAuthenticatedFetchVue()
 const currentProductCount = computed(() => {
 
@@ -116,10 +115,13 @@ export default {
     
     mounted() {
         this.getProductList();
+        this.products.product_template = 1;
+        this.products.product_price_template = 1;
     },
 
     methods: {
         async getProductList() {
+            // alert()
             const response = await fetch('/api/products/getAll')
             if (!response.ok) {
                 throw new Error(`Failed to fetch products: ${response.status}`)
@@ -133,9 +135,14 @@ export default {
             var filteredArray = allProducts.map(obj => Object.fromEntries(Object.entries(obj).filter(([key]) => selectedKeys.includes(key))));
             console.log(filteredArray);
             this.productList = filteredArray;
-            console.log('check first data is here1111================', this.productList, this.productListArray.length);
+            
             // return allProducts;
-        }
+        },
+        filtertemplateName(name) {
+            let singleProductDetail = this.productListArray.find(obj => obj['id'] === this.products.product_name);
+            localStorage.setItem("single_product_detail", JSON.stringify(singleProductDetail));
+        },
+        
     }
 
 }
